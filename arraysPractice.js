@@ -45,7 +45,7 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
   //Code Here
 function reversedLooper(letters) {
-  for(var i = letters.length - 1; i >=0; i--) {
+  for(var i = letters.length - 1; i >= 0; i--) {
     alert(letters[i]);
   }
 }
@@ -57,7 +57,14 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
   //Code Here
-
+function evenFinder(nums) {
+  for(var i = nums.length - 1; i >= 0; i--) {
+    if(nums[i] % 2 !== 0) {
+      nums.splice(i, 1);
+    }
+  }
+  return nums;
+}
 
 //Next problem
 
@@ -69,6 +76,22 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 
   //Code Here
+function divider(numbersArray) {
+  var evensArray = [];
+  var oddsArray = [];
+  var newArray = [evensArray, oddsArray];
+
+  for(var i = 0; i < numbersArray.length; i++) {
+    var currentNum = numbersArray[i];
+    if(currentNum % 2 === 0) {
+      evensArray.push(currentNum);
+    } else {
+      oddsArray.push(currentNum);
+    }
+  }
+
+  return newArray;
+}
 
 
 //Next Problem
@@ -83,6 +106,13 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
+function finder(numbers) {
+  var randomNumber = getRandomArbitrary();
+  if(numbers.indexOf(randomNumber) !== -1) {
+    return true;
+  }
+  return false;
+}
 
   //Code Here
 
@@ -95,6 +125,15 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
+function reverse(str) {
+  var strArray = [];
+  for(var i = 0; i < str.length; i++) {
+    strArray.push(str.charAt(i));
+  }
+  
+  strArray.reverse();
+  return strArray.join("");
+}
 
 
 //Next Problem
@@ -121,7 +160,27 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
+function removeItem(myGroceryList, itemToRemove) {
+  
+  if(!Array.isArray(myGroceryList) || itemToRemove === undefined) {
+    return [];
+  }
 
+  var itemIndex = myGroceryList.indexOf(itemToRemove);
+  if(itemIndex !== -1) {
+    myGroceryList.splice(itemIndex, 1);
+  }
+  return myGroceryList;
+}
+
+function addItem(myGroceryList, itemToAdd) {
+  if(!Array.isArray(myGroceryList) || itemToAdd === undefined) {
+    return [];
+  }
+
+  myGroceryList.push(itemToAdd);
+  return myGroceryList;
+}
 
 //Next Problem
 
